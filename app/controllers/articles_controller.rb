@@ -18,7 +18,11 @@ class ArticlesController < ApplicationController
     @article.save
 
     # render json: @article
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
   end
 
   private
