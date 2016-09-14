@@ -1,4 +1,12 @@
 class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+
   def new
 
   end
@@ -7,6 +15,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.save
 
+    # render json: @article
     redirect_to @article
   end
 
